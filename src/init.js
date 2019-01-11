@@ -19,15 +19,38 @@ $(document).ready(function() {
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
+    console.log(dancerMakerFunction);
 
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 1500
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+  });
+  
+  $('.toggleGrowButton').on('click', function(event) {
+    // for every dancer in window.dancers, set isGrowing = !isGrowing
+    // check is our dancer djSpongeDancer or other
+    // attach the first thing to... isGrowing to the growing animation
+    for (var eachDancer of window.dancers) {
+      if (makeDjSpongeDancer.prototype.isPrototypeOf(eachDancer)) {
+        eachDancer.isGrowing = !eachDancer.isGrowing;
+      }
+    }
+  });
+  
+  $('.lineUp').on('click', function(event) {
+    var start = 100;
+    var pad = 15;
+    
+    for (var eachDancer of window.dancers) {      
+      eachDancer.setPosition(start, 100);
+      start += eachDancer.$node.height() + pad;
+    }
   });
 });
 

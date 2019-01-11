@@ -25,3 +25,23 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.dancerSponge{
+  display: block;
+  position:absolute;
+  width: 300px;
+  height: auto;
+}
+.dancerSponge:hover{
+  border-radius: 50%;
+}
+.shouldGrow{
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+/*.dancerSponge:hover{
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+}*/
